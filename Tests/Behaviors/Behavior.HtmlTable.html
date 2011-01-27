@@ -42,7 +42,14 @@ table.table-resizable th div {
   padding-right: 0;
   position: relative;
 }
+
+table tr.selected td, table tr.table-tr-selected td, table tr.selected td a, table tr.table-tr-selected td a {
+	background-color: #3875d7;
+	color: #fff;
+}
 </style>
+
+<p>Use <code>&lt;tr class="table-tr-selected"&gt;</code> to select a row by default. The table should have a class <code>selectable</code>. For example, the row containing <b>San Francisco</b> should be selected by default.</p>
 
 <table data-filters="HtmlTable" class="multiselect selectable sortable resizable" data-table-resize="table" cellpadding="0" cellspacing="0">
 		<thead>
@@ -82,7 +89,7 @@ table.table-resizable th div {
 					-73.9983
 				</td>
 			</tr>
-			<tr>
+			<tr class="table-tr-selected">
 				<td>
 					23
 				</td>

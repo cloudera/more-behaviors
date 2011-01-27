@@ -17,6 +17,7 @@ Behavior.addGlobalFilters({
 			if (th.hasClass('defaultSort')) firstSort = i;
 		});
 		var multiselectable = element.hasClass('multiselect');
+		var selected = element.getElements('.table-tr-selected');
 		var table = new HtmlTable(element, {
 			sortIndex: firstSort,
 			sortable: element.hasClass('sortable') && !element.hasClass('treeview'),
@@ -29,6 +30,7 @@ Behavior.addGlobalFilters({
 			resize: element.getData('table-resize'),
 			build: element.hasClass('buildTree')
 		});
+		if (selected) selected.each(function(el){ table.selectRow(el); });
 		this.markForCleanup(element, function(){
 			if (table.keyboard) table.keyboard.relinquish();
 		});
