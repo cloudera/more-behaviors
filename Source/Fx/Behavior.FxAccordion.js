@@ -11,7 +11,17 @@ Behavior.addGlobalFilters({
 	Accordion: function(element) {
 		var toggles = element.getData('toggler-elements') || '.toggle';
 		var sections = element.getData('section-elements') || '.target';
-		var accordion = new Fx.Accordion(toggles, sections);
+		var accordion = new Fx.Accordion(toggles, sections, {
+			onActive: function(toggler, section){
+				toggler.addClass('active');
+				section.addClass('active');
+			},
+			onBackground: function(toggler, section){
+				toggler.removeClass('active');
+				section.removeClass('active');
+			},
+			initialDisplayFx: false
+		});
 		this.markForCleanup(element, function() {
 			accordion.detach();
 		});
